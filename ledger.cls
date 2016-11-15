@@ -117,7 +117,7 @@
 
 \pretitle{%
     \centering%
-    \selectfont Ledger \LaTeX \ Template \par \blankline
+    %\selectfont Ledger \LaTeX \ Template \par \blankline
     \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
 \posttitle{\par}
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}} % Authors are centered and at 13 pt.  Continuation of awkward hack
