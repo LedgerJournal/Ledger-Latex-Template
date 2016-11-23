@@ -5,6 +5,21 @@
 
 % PACKAGES
 
+%%%% ADDED, UPDATE TEMPLATE EXAMPLES
+\RequirePackage[superscript,biblabel]{cite}
+
+\RequirePackage{numprint}
+\npthousandsep{,}\npthousandthpartsep{}\npdecimalsign{.}
+\newcommand{\num}[1]{\numprint{#1}}
+\newcommand{\q}[2]{\num{#1}~{#2}}
+\newcommand{\percent}[1]{\num{#1}\%}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \RequirePackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Symbol, Chancery and Computer Modern fonts
 \renewcommand{\@xpt}{11}
 \renewcommand{\@xiipt}{13}
@@ -32,29 +47,94 @@
 \graphicspath{{./images/}}
 
 \RequirePackage{pbox} % \pbox is like \parbox but automatically determines box width
+\RequirePackage{framed}
 
 \RequirePackage{color} % used to change color of text
 
 \RequirePackage{fancyhdr} % Allows customization of headers/footers
 \renewcommand{\headrulewidth}{0pt}
-\fancypagestyle{plain}{%
+
+
+% here are all the headers
+% we need to create three page styles pagefirst, pageplain and pagelast
+\fancypagestyle{pagefirst}{%
   \fancyhf{}%
   \lhead{\includegraphics[height=1cm]{logoNew}}%
-  \rhead{\raisebox{1cm-\height}{\begin{minipage}[t]{.48\textwidth}
-\begin{flushright}
-\fontsize{8pt}{8pt}\selectfont\sffamily \color{gray}SSN 2379-5980 (online) \\ DOI \\ 5195/LEDGER.2015.id
-\end{flushright}
-\end{minipage}}}%
+  % \lhead{Left top first}%
+  % \rhead{Right top first}%
+  % \lfoot{Left bottom first}%
+  % \rfoot{Right bottom first}%
+    \rhead{\raisebox{1cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \end{flushright}
+    \end{minipage}}
+    }
 }
-\pagestyle{fancy}
-\fancyhf{}
-\lfoot{\raisebox{1cm-\height}{\includegraphics[height=8pt]{logoSmall}}}
-\cfoot{\raisebox{1cm-\height}{\textbf{\thepage}}}
-\rfoot{\raisebox{1cm-\height}{\begin{minipage}[t]{.48\textwidth}
-\begin{flushright}
-\fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
-\end{flushright}
-\end{minipage}}}
+
+\fancypagestyle{pagemain}{%
+  \fancyhf{}%
+  % \lhead{\includegraphics[height=1cm]{logoNew}}%
+  % \lhead{Left top main }%
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
+  \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
+
+  % \rhead{Right top main }%
+  % \lfoot{Left bottom main }%
+  % \rfoot{Right bottom main }%
+  \rfoot{\raisebox{0.5cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \end{flushright}
+    \end{minipage}}}
+}
+
+
+
+\fancypagestyle{pagelast}{%
+  \fancyhf{}%
+
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+
+  \cfoot{
+    \raisebox{1cm-\height}{
+    \begin{minipage}[b]{0.9\textwidth}
+    \footnotesize\raggedright
+    \setlength{\parskip}{0.5\baselineskip}
+    \begin{framed}
+    \pbox[b]{\textwidth}{This work is licensed under a Creative Commons
+      Attribution 4.0 License. Ledger is published by the University Library
+      System of the University of Pittsburgh as part of its D-Scribe Digital
+      Publishing Program, and is cosponsored by the University of Pittsburgh
+      Press.}
+    \end{framed}
+    \end{minipage}
+    }
+  }
+    
+
+  %\cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
+  %\lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
+
+  %\rfoot{\raisebox{0.5cm-\height} {\begin{minipage}[t]{.48\textwidth}
+  %   \begin{flushright}
+  %   \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+  %    \\ DOI.5195/LEDGER.2015.id
+  %    \end{flushright}
+  %  \end{minipage}}}
+  
+  % \lhead{\includegraphics[height=1cm]{logoNew}}%
+  % \lhead{Left top last}%
+  % \rhead{Right top last}%
+  % \lfoot{Left bottom last}%
+  % \rfoot{Right bottom last}%
+}
+
+
+
 
 \RequirePackage{fnpct} % Change default footnote/punctuation behavior
 
@@ -117,7 +197,7 @@
 
 \pretitle{%
     \centering%
-    %\selectfont Ledger \LaTeX \ Template \par \blankline
+    \selectfont Ledger \LaTeX \ Template \par \blankline
     \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
 \posttitle{\par}
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}} % Authors are centered and at 13 pt.  Continuation of awkward hack
@@ -138,8 +218,7 @@
 % Body
 
 \renewcommand{\baselinestretch}{1.13}
-%\setcounter{secnumdepth}{1}
-%\renewcommand\thesection{\arabic{section}}
+
 
 % Keywords
 \let\olditem\item
@@ -154,21 +233,48 @@
     {\centering\fontsize{10pt}{13pt}\selectfont\textsc{Key Words}\par}\vspace{6pt}
     \begin{center}\begin{minipage}{\keywordswidth}\begin{center}\begin{enumerate*}[itemjoin={\hspace{1em}},label=\arabic*.]}{\end{enumerate*}\end{center}\end{minipage}\end{center}}
 
+
+
+
+
+
+
+
 % Section and subsection
 
 \RequirePackage{titlesec} % Allows customization of \section
 
-%
-\titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{\thesection .\quad}
-\titlespacing*{\section}{0pt}{15pt}{7pt}
-\titleformat{\subsection}[runin]{\fontshape{it}\selectfont}{}{\parindent}{}[---]
+%\setcounter{secnumdepth}{1}
+%\renewcommand\thesection{\arabic{section}}
+
+
+
+\titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0.5ex}{\thesection .\quad}
+\titlespacing{\section}{0pt}{15pt}{7pt}
+
+
+\titleformat{\subsection}[runin]{\fontshape{it}\selectfont}{}{\parindent}{\thesubsection .\quad}[---]
 \titlespacing{\subsection}{0em}{0em}{0em}
+
+
+\def\ledgernotes{
+    \setcounter{section}{0}
+    \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0.5ex}{}
+    \titlespacing{\section}{0pt}{15pt}{7pt}
+}
+
 
 \def\appendix{
     \setcounter{section}{0}
-    \renewcommand\thesection{Appendix \Alph{section}}
-    \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{Appendix \Alph{section}:\quad}
+    \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0.5ex}{Appendix \Alph{section}:\quad}
 }
+
+
+
+
+
+
+
 
 % Tables
 
@@ -194,7 +300,7 @@
 \makeatletter
 \renewcommand\@makefntext[1]{%
     \fontsize{8pt}{11pt}\selectfont%
-    %\parindent 1em%
+    %\parindent 20pt%
     \noindent
     \hbox{\hss\@makefnmark}\ #1}\vspace{3pt}
 \makeatother
@@ -242,12 +348,9 @@
 \setlength{\belowdisplayshortskip}{7pt}
 
 % Endnotes
-
-\renewcommand{\notesname}{Notes and References} % Changes the title of the section
-\renewcommand\enoteformat{\fontsize{11pt}{13pt}\selectfont\rightskip=0pt \leftskip=0pt \parindent=0em
-  \leavevmode\makeenmark\raggedright\vspace{5pt}} % Changes indentation
-\let\oldtheendnotes\theendnotes
-\def\theendnotes{
-    \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{}
-    \oldtheendnotes
-}
+\renewcommand{\notesname}{Notes and References} % Changes the title of thesection
+\renewcommand\enoteformat{\fontsize{11pt}{13pt}\selectfont\rightskip=0pt \leftskip=0pt
+  \parindent=1em \leavevmode\makeenmark\raggedright\vspace{5pt}} % Changesindentation
+  \let\oldtheendnotes\theendnotes \def\theendnotes{
+  \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{}
+  \oldtheendnotes }
