@@ -5,6 +5,37 @@
 
 % PACKAGES
 
+
+\RequirePackage{amsthm}
+% \RequirePackage{ntheorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\renewcommand\qedsymbol{\hfill$\blacksquare$}
+\newtheorem*{remark}{Remark}
+
+\newenvironment{myproof}[1][\proofname\renewcommand*{\qedsymbol}{\(\blacksquare\)}]{
+\it\hspace{-1.55em}Proof.\hspace{0.55em}\normalfont
+}\qedsymbol{\endproof}
+
+% \newenvironment{proof*}[1][\proofname]{
+%   \renewcommand\qedsymbol{\rule{3mm}{3mm}}
+%   \begin{proof}[#1]}{\end{proof}}
+
+% \let\oldproofname=\proofname
+% \renewcommand{\proofname}{\hspace{-0.5em}\oldproofname}
+
+% % \makeatletter
+% \renewenvironment{proof}[1][\proofname] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
+% \makeatother
+
+% \RequirePackage{etoolbox}% http://ctan.org/pkg/etoolbox
+% \newcommand*{\myproofname}{My proof}
+% \newenvironment{myproof}[1][\myproofname]{\begin{proof}[#1]\renewcommand*{\qedsymbol}{\(\blacksquare\)}}{\end{proof}}
+
+% \newtheorem{theorem2}{Theorem}%
+% \AtEndEnvironment{theorem2}{\null\hfill\qedsymbol}%
+
 \RequirePackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Symbol, Chancery and Computer Modern fonts
 \renewcommand{\@xpt}{11}
 \renewcommand{\@xiipt}{13}
@@ -240,6 +271,8 @@
 \setlength{\abovedisplayshortskip}{9pt}
 \setlength{\belowdisplayskip}{7pt}
 \setlength{\belowdisplayshortskip}{7pt}
+
+
 
 % Endnotes
 

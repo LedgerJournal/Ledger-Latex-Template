@@ -1,5 +1,6 @@
 \documentclass{ledger}
 
+
 \overfullrule=10pt
 
 \title{Descriptive Title Written in Twenty-four Point Times New Roman}
@@ -29,6 +30,7 @@ The first body section must be labeled ``Introduction''  Using plain language, e
 \section{Body Section Headings are 13pt.\ Times New Roman Bold}
 
 Any number of body sections may follow the Introduction.  For hypothesis-driven research, we suggest the conventional structure of Methods, Results, Discussion.  For technology-advancement papers, provide concise descriptive titles for each body section.  The body sections should logically flow together such that the paper tells a cohesive and compelling story of the research that was undertaken and the results that were obtained.
+
 
 \subsection{Subheadings are inline and written in italic and followed by an em dash}
 
@@ -99,13 +101,45 @@ P_{\text{doublespend}}=1-\sum _{k=0}^za\frac{\lambda ^ke^{-\lambda}}{k!}\left[ 1
 \end{equation}
 Authors submitting in Microsoft Word must use the built-in equation editor of the MathType plug-in.
 
+
+
+% \begin{theorem2}
+% This is an important theorem.
+% \end{theorem2}
+
+
+\begin{theorem}
+Let $f$ be a function whose derivative exists in every point, then $f$
+is a continuous function.
+\end{theorem}
+
+\begin{myproof}
+Here is my important proof
+\end{myproof}
+
+\begin{lemma}
+Given two line segments whose lengths are $a$ and $b$ respectively there
+is a real number $r$ such that $b=ra$.
+\end{lemma}
+
+% \begin{proof}
+% To prove it by contradiction try and assume that the statemenet is false,
+% proceed from there and at some point you will arrive to a contradiction.
+% \end{proof}
+
+% \begin{remark}
+% This statement is true, I guess.
+% \end{remark}
+
+
+
 \subsection{Code}
 
-Code segments can be displayed inline using 10 pt.~Courier New (e.g., \lstinline|#define largerlimit 8000000|), or on display in the same font:
-\begin{lstlisting}
-if(blocknumber > 115000)
-maxblocksize = largerlimit
-\end{lstlisting}
+% Code segments can be displayed inline using 10 pt.~Courier New (e.g., \lstinline|#define largerlimit 8000000|), or on display in the same font:
+% \begin{lstlisting}
+% if(blocknumber > 115000)
+% maxblocksize = largerlimit
+% \end{lstlisting}
 For displayed code, the first line should be indented by 1.2cm (twice the standard indent) with additional tabs at multiples of 0.6 cm.
 
 \subsection{Endnotes}
@@ -118,7 +152,7 @@ For papers that do not follow a conventional structure, synthesize and summarize
 
 \section{Acknowledgement}
 
-Acknowledge people who helped carry out the research or prepare the manuscript but whose contribution did not warrant authorship.  List funders and other sources of financial support at the end of this section.  
+Acknowledge people who helped carry out the research or prepare the manuscript but whose contribution did not warrant authorship.  List funders and other sources of financial support at the end of this section.
 
 \section{Author Contributions}
 
