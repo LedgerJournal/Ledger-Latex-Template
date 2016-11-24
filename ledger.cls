@@ -197,7 +197,7 @@
 
 \pretitle{%
     \centering%
-    \selectfont Ledger \LaTeX \ Template \par \blankline
+    %\selectfont Ledger \LaTeX \ Template \par \blankline
     \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
 \posttitle{\par}
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}} % Authors are centered and at 13 pt.  Continuation of awkward hack
@@ -346,6 +346,20 @@
 \setlength{\abovedisplayshortskip}{9pt}
 \setlength{\belowdisplayskip}{7pt}
 \setlength{\belowdisplayshortskip}{7pt}
+
+\RequirePackage{amsthm}
+% \RequirePackage{ntheorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newtheorem*{remark}{Remark}
+% \newtheorem{proof}{Proof}
+
+\newenvironment{myproof}[1][\proofname]{
+  % \normalfont\hspace{-1.55em}Proof.\hspace{0.55em}
+  \it\hspace{-1.55em}Proof.\hspace{0.55em}\normalfont
+}{\endproof}
 
 % Endnotes
 \renewcommand{\notesname}{Notes and References} % Changes the title of thesection
