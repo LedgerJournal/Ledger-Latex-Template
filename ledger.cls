@@ -312,7 +312,7 @@
 
 \renewcommand{\figurename}{\fontsize{10pt}{13pt}\selectfont Fig.} % In captions, changes "Figure" to "Fig." and fixes font size
 
-\crefname{figure}{Figure}{Figures} % Tells \cref how to display references to figures
+\crefname{figure}{Fig.}{Figs.} % Tells \cref how to display references to figures
 
 % Captions
 
