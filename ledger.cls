@@ -136,11 +136,14 @@
 }
 
 
+\RequirePackage{caption} % Allows customization of captions
+
+\RequirePackage{cleveref} % Used for 'smart' references
+
 
 
 \RequirePackage{fnpct} % Change default footnote/punctuation behavior
 
-\RequirePackage{cleveref} % Used for 'smart' references
 
 \RequirePackage[inline]{enumitem} % Allows inline lists.  Used for keywords.
 \setlist{leftmargin=1.2cm,labelindent*=.6cm,itemsep=0cm,parsep=0cm,topsep=0cm}
@@ -328,22 +331,23 @@
   \hbox{\hss\@makefnmark}\ #1}\vspace{3pt}
 \makeatother
 
-
 \crefname{table}{Table}{Tables} % Tells \cref how to display references to tables
 
 \newcommand{\tableheading}[1]{\pbox[c]{\textwidth}{\vspace{4pt}\fontsize{10pt}{13pt}\selectfont#1\vspace{4pt}}} % Standards ask for "table headings" to be displayed in a certain way, and so we make a command for this
 
+
 % Figures
 
-\renewcommand{\figurename}{\fontsize{10pt}{13pt}\selectfont Fig.} % In captions, changes "Figure" to "Fig." and fixes font size
+\crefname{figure}{Fig.}{Figures} % Tells \cref how to display
+\renewcommand{\figurename}{\fontsize{10pt}{13pt}\selectfont Fig.}
+% In captions, changes "Figure" to "Fig." and fixes font size
 
-\crefname{figure}{Figure}{Figures} % Tells \cref how to display references to figures
 
 % Captions
 
-\RequirePackage{caption} % Allows customization of captions
+\captionsetup{figurename=Fig.,labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
 
-\captionsetup{labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
+%\captionsetup[figure]{figurename=Fig.}
 
 % Redefines captions to conform with standards
 \makeatletter
