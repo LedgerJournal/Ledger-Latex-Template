@@ -1,36 +1,38 @@
 \documentclass{ledger}
 
-
 \overfullrule=10pt
 
 \title{Descriptive Title Written in Twenty-four Point Times New Roman}
-\author{First A.~Author\thanks{F.~A.~Author (first@stanford.edu) is Professor of Computer Science at Stanford University, USA}\and Second B.~Author\thanks{S.~B.~Author\textellipsis author affiliations should be written in 8 pt.~Times New Roman font and 9pt.~line spacing}\and 13 pt.~Times New Roman}
+\author{First A.~Author\thanks{F.~A.~Author (first@stanford.edu) is Professor of Computer Science at Stanford University, USA}\thanks{1MyBitcoinAddress38f3tu8w}\and Second B.~Author\thanks{S.~B.~Author\textellipsis author affiliations should be written in 8 pt.~Times New Roman font and 9pt.~line spacing}\and 13 pt.~Times New Roman\thanks{The asterisk [ $\ast$ ] should be used for the Corresponding Author, and the dagger [ $\dagger$ ], double dagger [ $\ddagger$ ], section mark [ $\S$ ] and pilcrow [ $\P$ ] for the authors’ affiliations. If more footnotes are required, use the pattern: [ $\ast$ ], [ $\dagger$, $\ddagger$, $\S$, $\P$, $\dagger\dagger$, $\ddagger\ddagger$, $\S\S$, $\P\P$, $\dagger\dagger\dagger$ $\dots$ ].}}
+
+\pagestyle{pagemain}
 
 \begin{document}
 
 \maketitle
 
+\thispagestyle{pagefirst}
+
 \begin{abstract}
 The abstract should be written in 10 pt.~ Times New Roman font, 13 pt.~line spacing, and 1.2 cm indenting on either side.  Give a concise summary of the paper in a single paragraph of approximately 150 words (200 words max).  The abstract should communicate both what the paper is about and the important results obtained.  The abstract should contain neither references nor non-plain text elements such as equations or compute code.
 
 \begin{keywords}
-\item First key word
-\item Second key word
-\item Same style as abstract
-\item Not more than two lines of keywords
+\item First key word.
+\item Second key word.
+\item Same style as abstract.
+\item Not more than two lines of keywords.
 \end{keywords}
 \end{abstract}
 
 \section{Introduction (13 pt.\ Times New Roman Bold)}
 
-Body text should be written in 11 pt.\ Times New Roman font with 13pt.\ line spacing.  The first paragraph and the headings and sub-headings should not be indented, but subsequent paragraphs should be indented 0.6cm.
+Body text should be written in 11.5 pt.\ Times New Roman font with 13pt.\ line spacing.  The first paragraph and the headings and sub-headings should not be indented, but subsequent paragraphs should be indented 0.6cm.
 
 The first body section must be labeled ``Introduction''  Using plain language, explain why your work is important, describe how it fits within the existing body of cryptocurrency knowledge, and then state in what way your work represents a new contribution.  If your paper does not follow a conventional structure (see below), then the Introduction should end by describing what the following sections of the paper are about.  The Introduction should contain approximately 500 to 750 words (1000 words max) and should not use sub headings.
 
 \section{Body Section Headings are 13pt.\ Times New Roman Bold}
 
 Any number of body sections may follow the Introduction.  For hypothesis-driven research, we suggest the conventional structure of Methods, Results, Discussion.  For technology-advancement papers, provide concise descriptive titles for each body section.  The body sections should logically flow together such that the paper tells a cohesive and compelling story of the research that was undertaken and the results that were obtained.
-
 
 \subsection{Subheadings are inline and written in italic and followed by an em dash}
 
@@ -56,17 +58,17 @@ Author affiliations & Times & 8 & 9 & 0 & 1 & $\square$ & $\square$ & $\square$ 
 Abstract\footnote{The Abstract section begins with the word ``Abstract'' in bold face and followed by a period.  The abstract text immediately follows (no line break) and has regular font weight.} & Times & 10 & 13 & 0 & 0 & $\square$ & $\square$ & $\square$ & $\square$ \\
 \pbox[c][.8cm]{\textwidth}{Article type / ``Key \\ words'' heading} & Times & 10 & 13 & 9 & 6 & $\square$ & $\square$ & $\blacksquare$ & $\blacksquare$ \\
 Section headings & Times & 13 & 15 & 15 & 7 & $\blacksquare$ & $\square$ & $\square$ & $\square$ \\
-Sub headings\footnote{Subsections are allowed and can be numbered or unnumbered.  In either case, the heading is written in-line with the body text and in italic followed by an em dash.} & Times & 11 & 13 & 0 & 0 & $\square$ & $\blacksquare$ & $\square$ & $\square$ \\
-Body text & Times & 11 & 13 & 0 & 0 & $\square$ & $\square$ & $\square$ & $\square$ \\
+Sub headings\footnote{Subsections are allowed and can be numbered or unnumbered.  In either case, the heading is written in-line with the body text and in italic followed by an em dash.} & Times & 11.5 & 13.5 & 0 & 0 & $\square$ & $\blacksquare$ & $\square$ & $\square$ \\
+Body text & Times & 11.5 & 13.5 & 0 & 0 & $\square$ & $\square$ & $\square$ & $\square$ \\
 Figure captions & Times & 10 & 13 & --- & 20 & $\square$ & $\square$ & $\square$ & $\square$\footnote{Figure captions less than one line in length should be centered while multi-line captions should be justified.} \\
 Table captions & Times & 10 & 13 & 15 & 6 & $\square$ & $\square$ & $\square$ & $\blacksquare$ \\
-Text in tables & Times & 10 & 12 & 1 & 1 & $\square$ & $\square$ & $\square$ & --- \\
+Text in tables & Times & 10 & 11.5 & 1 & 1 & $\square$ & $\square$ & $\square$ & --- \\
 Table headings & Times & 10 & 13 & 4 & 4 & $\square$ & $\square$ & $\square$ & $\blacksquare$ \\
 Text in figures & Arial & 8 & --- & --- & --- & $\square$ & $\square$ & $\square$ & --- \\
 References & Times & 10 & 12 & 0 & 6 & $\square$ & $\square$ & $\square$ & $\square$  \\
 Footnotes in tables & Times & 8 & 11 & 0 & 3 & $\square$ & $\square$ & $\square$ & $\square$ \\
 Code & Courier New & 10 & 11 & 0 & 0 & $\square$ & $\square$ & $\square$ & $\square$ \\
-Display equations & \makebox[0pt]{\pbox[c][.8cm]{\textwidth}{Times or \\ \centering Cambria Math}} & 12 & --- & 9 & 7 & $\square$ & $\square$ & $\square$ & $\blacksquare$ \\ \hline
+Display equations & \makebox[0pt]{\pbox[c][.8cm]{\textwidth}{Times or \\ \centering Cambria Math}} & 11.5 & --- & 9 & 7 & $\square$ & $\square$ & $\square$ & $\blacksquare$ \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -101,31 +103,6 @@ P_{\text{doublespend}}=1-\sum _{k=0}^za\frac{\lambda ^ke^{-\lambda}}{k!}\left[ 1
 \end{equation}
 Authors submitting in Microsoft Word must use the built-in equation editor of the MathType plug-in.
 
-
-
-% \begin{theorem2}
-% This is an important theorem.
-% \end{theorem2}
-
-
-\begin{theorem}
-Let $f$ be a function whose derivative exists in every point, then $f$
-is a continuous function.
-\end{theorem}
-
-\begin{myproof}
-Here is my important proof
-\end{myproof}
-
-\begin{lemma}
-Given two line segments whose lengths are $a$ and $b$ respectively there
-is a real number $r$ such that $b=ra$.
-\end{lemma}
-
-
-
-
-
 \subsection{Code}
 
 Code segments can be displayed inline using 10 pt.~Courier New (e.g., \lstinline|#define largerlimit 8000000|), or on display in the same font:
@@ -137,19 +114,21 @@ For displayed code, the first line should be indented by 1.2cm (twice the standa
 
 \subsection{Endnotes}
 
-Endnotes are denoted with a superscript Arabic numeral and ordered sequentially.  The final section of the manuscript lists the notes and references (i.e., the endnotes) denoted throughout the paper.  Notes provide proof of facts stated in the article, or additional clarifications on points made in the manuscript.  References list cited material; for example, this is a reference to a journal article,\endnote{Wilmer, C.~E., Rizum P.~R.  ``How to Write and Format an Article for \textit{Ledger}.''  \textit{Ledger} \textbf{1.1} 1--11 (2015) doi:10.1037/rmh0000008} this is a reference to a book,\endnote{Wilmer, C.~E. \textit{Ledger:  The Story of a Journal}.  Pittsburgh:  University of Pittsburgh Press 32--33 (2016).} this is a reference to a forum comment,\endnote{Wilmer, C.~E.~(/u/ThorwawayLedgerAcct).  Comment in ``On the Future of Bitcoin.''  \textit{Reddit} (accessed 11 January 2016) https://www.reddit.com/r/bitcoin/comments/3iao3i/on\_ the\_ future\_ of\_ bitcoin/cupd80} and this is a reference to the Bitcoin white paper.\endnote{Nakamoto, S.~``Bitcoin:  A Peer-to-Peer Electronic Cash System.''  No Publisher (2008) https://bitcoin.org/bitcoin.pdf}
+Endnotes are denoted with a superscript Arabic numeral and ordered sequentially.  The final section of the manuscript lists the notes and references (i.e., the endnotes) denoted throughout the paper.  Notes provide proof of facts stated in the article, or additional clarifications on points made in the manuscript.  References list cited material; for example, this is a reference to a journal article,\endnote{Wilmer, C.~E., Rizum P.~R.  ``How to Write and Format an Article for \textit{Ledger}.''  \textit{Ledger} \textbf{1.1} 1--11 (2015) doi:10.1037/rmh0000008} this is a reference to a book,\endnote{Wilmer, C.~E. \textit{Ledger:  The Story of a Journal}.  Pittsburgh:  University of Pittsburgh Press 32--33 (2016).} this is a reference to a forum comment,\endnote{Wilmer, C.~E.~(/u/ThorwawayLedgerAcct).  Comment in ``On the Future of Bitcoin.''  \textit{Reddit} (accessed 11 January 2016) \url{https://www.reddit.com/r/bitcoin/comments/3iao3i/on\_ the\_ future\_ of\_ bitcoin/cupd80}} and this is a reference to the Bitcoin white paper.\endnote{Nakamoto, S.~``Bitcoin:  A Peer-to-Peer Electronic Cash System.''  No Publisher (2008) \url{https://bitcoin.org/bitcoin.pdf}}
 
 \section{Conclusion}
 
 For papers that do not follow a conventional structure, synthesize and summarize the main results of the paper.  This section is also an appropriate place to clarify the limitations of the work, as well as to describe new research questions that arose.  The conclusion section for papers that follow a conventional structure (i.e., Methods, Results, Discussion) may be very short because the synthesis of the results usually occurs in the Discussion section.  The Conclusion and the Introduction should be the two sections of your paper most accessible to an interdisciplinary readership.
 
+\ledgernotes
+
 \section{Acknowledgement}
 
-Acknowledge people who helped carry out the research or prepare the manuscript but whose contribution did not warrant authorship.  List funders and other sources of financial support at the end of this section.
+Acknowledge people who helped carry out the research or prepare the manuscript but whose contribution did not warrant authorship.  List funders and other sources of financial support at the end of this section.  
 
 \section{Author Contributions}
 
-State the contribution made by each author.  Refer to authors using their initials, for example, ``FAA developed the code to perform the simulation (65\% ) and SBA analyzed the results (35\% ).  They both contributed equally to manuscript preparation.''
+State the contribution made by each author.  Refer to authors using their initials, for example, ``FAA developed the code to perform the simulation (65\%) and SBA analyzed the results (35\%).  They both contributed equally to manuscript preparation.''
 
 \section{Conflict of Interest}
 
@@ -162,5 +141,7 @@ State any potential conflict of interest here, again referring to authors using 
 Relegate to an appendix material that would distract from the flow of the article, but that is required to rigorously prove claims made or concepts introduced in the paper’s body.
 
 \theendnotes
+
+%\thispagestyle{pagelast}
 
 \end{document}
