@@ -203,11 +203,12 @@
     #1\vspace{1pt}}\thanksgap{\spacelength}}
 % An awkward hack to get footnote marks, punctuation, and spaces to work as
 % desired
-\pretitle{
-  \centering \selectfont LEDGER \LaTeX \ TEMPLATE \par %\blankline
 
-  \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
+
+
+
 \posttitle{\par}
+
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont
   \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}}
 % Authors are centered and at 13 pt.  Continuation of awkward hack
