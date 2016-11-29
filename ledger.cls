@@ -376,6 +376,19 @@
 \setlength{\belowdisplayskip}{7pt}
 \setlength{\belowdisplayshortskip}{7pt}
 
+\RequirePackage{amsthm}
+% \RequirePackage{ntheorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\renewcommand\qedsymbol{\hfill$\blacksquare$}
+\newtheorem*{remark}{Remark}
+
+\newenvironment{myproof}[1][\proofname\renewcommand*{\qedsymbol}{\(\blacksquare\)}]{
+  \it\hspace{-1.55em}Proof.\hspace{0.55em}\normalfont
+}\qedsymbol{\endproof}
+
+
 
 % Endnotes
 % for use with \theendnotes
@@ -397,7 +410,7 @@
 \makeatletter
 \renewenvironment{thebibliography}[1]
                  %{\refname%
-                 {\vspace{13pt}\par\noindent\begin{minipage}{\textwidth}\fontsize{13pt}{13pt}\selectfont \textbf{References and End Notes}\end{minipage}\par  
+                 {\vspace{13pt}\par\noindent\begin{minipage}{\textwidth}\fontsize{13pt}{13pt}\selectfont \textbf{Notes and References}\end{minipage}\par  
                    %{\centering\begin{minipage}{\abstractwidth}\fontsize{13pt}{13pt}\selectfont \textbf{References and End Notes}{\end{minipage}\par}
                    \fontsize{10pt}{10pt}\selectfont
       \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
