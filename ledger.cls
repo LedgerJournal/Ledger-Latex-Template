@@ -5,9 +5,31 @@
 
 % PACKAGES
 
+%%%% ADDED, UPDATE TEMPLATE EXAMPLES
+\RequirePackage[superscript,biblabel]{cite}
+
+\RequirePackage{subfig}
+%\usepackage{fullpage}
+
+
+\RequirePackage{numprint}
+\npthousandsep{,}\npthousandthpartsep{}\npdecimalsign{.}
+\newcommand{\num}[1]{\numprint{#1}}
+\newcommand{\q}[2]{\num{#1}~{#2}}
+\newcommand{\percent}[1]{\num{#1}\%}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \RequirePackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Symbol, Chancery and Computer Modern fonts
-\renewcommand{\@xpt}{11}
-\renewcommand{\@xiipt}{13}
+\renewcommand{\@xpt}{11.5}
+\renewcommand{\@xiipt}{13.5}
 \renewcommand\normalsize{%
    \@setfontsize\normalsize\@xpt\@xiipt
    \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
@@ -31,34 +53,97 @@
 \RequirePackage{graphicx} % Used to include pictures
 \graphicspath{{./images/}}
 
-\RequirePackage{pbox} % \pbox is like \parbox but automatically determines box width
+\RequirePackage{pbox} % \pbox is like \parbox but automatically determines box
+                      % width
+\RequirePackage{framed}
 
 \RequirePackage{color} % used to change color of text
 
 \RequirePackage{fancyhdr} % Allows customization of headers/footers
 \renewcommand{\headrulewidth}{0pt}
-\fancypagestyle{plain}{%
+
+
+
+\RequirePackage[pdfpagelabels]{hyperref}
+\RequirePackage{breakurl}
+%\RequirePackage{url}
+%\def\url#1{\expandafter\string\csname #1\endcsname}
+
+\hypersetup{bookmarks=false, hidelinks=true, unicode=true, pageanchor=false}
+
+\AtBeginDocument{\urlstyle{same}}
+
+
+% here are all the headers
+% we need to create three page styles pagefirst, pageplain and pagelast
+\fancypagestyle{pagefirst}{%
   \fancyhf{}%
   \lhead{\includegraphics[height=1cm]{logoNew}}%
-  \rhead{\raisebox{1cm-\height}{\begin{minipage}[t]{.48\textwidth}
-\begin{flushright}
-\fontsize{8pt}{8pt}\selectfont\sffamily \color{gray}SSN 2379-5980 (online) \\ DOI \\ 5195/LEDGER.2015.id
-\end{flushright}
-\end{minipage}}}%
+  % \lhead{Left top first}%
+  % \rhead{Right top first}%
+  % \lfoot{Left bottom first}%
+  % \rfoot{Right bottom first}%
+    \rhead{\raisebox{1cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \end{flushright}
+    \end{minipage}}
+    }
 }
-\pagestyle{fancy}
-\fancyhf{}
-\lfoot{\raisebox{1cm-\height}{\includegraphics[height=8pt]{logoSmall}}}
-\cfoot{\raisebox{1cm-\height}{\textbf{\thepage}}}
-\rfoot{\raisebox{1cm-\height}{\begin{minipage}[t]{.48\textwidth}
-\begin{flushright}
-\fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
-\end{flushright}
-\end{minipage}}}
+
+\fancypagestyle{pagemain}{%
+  \fancyhf{}%
+  % \lhead{\includegraphics[height=1cm]{logoNew}}%
+  % \lhead{Left top main }%
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
+  \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
+
+  % \rhead{Right top main }%
+  % \lfoot{Left bottom main }%
+  % \rfoot{Right bottom main }%
+  \rfoot{\raisebox{0.5cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \end{flushright}
+    \end{minipage}}}
+}
+
+
+
+\fancypagestyle{pagelast}{%
+  \fancyhf{}%
+
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+
+  \cfoot{
+    \raisebox{1cm-\height}{
+    \begin{minipage}[b]{0.9\textwidth}
+    \footnotesize\raggedright
+    \setlength{\parskip}{0.5\baselineskip}
+    \begin{framed}
+    \pbox[b]{\textwidth}{This work is licensed under a Creative Commons
+      Attribution 4.0 License. Ledger is published by the University Library
+      System of the University of Pittsburgh as part of its D-Scribe Digital
+      Publishing Program, and is cosponsored by the University of Pittsburgh
+      Press.}
+    \end{framed}
+    \end{minipage}
+    }
+  }
+}
+
+
+\RequirePackage{caption} % Allows customization of captions
+
+\RequirePackage{cleveref} % Used for 'smart' references
+
+
 
 \RequirePackage{fnpct} % Change default footnote/punctuation behavior
 
-\RequirePackage{cleveref} % Used for 'smart' references
 
 \RequirePackage[inline]{enumitem} % Allows inline lists.  Used for keywords.
 \setlist{leftmargin=1.2cm,labelindent*=.6cm,itemsep=0cm,parsep=0cm,topsep=0cm}
@@ -83,7 +168,8 @@
 
 % FORMATTING
 
-\setlength{\parskip}{0pt} % So that we know exactly how much space goes between different elements
+\setlength{\parskip}{0pt} % So that we know exactly how much space goes between
+                          % different elements
 
 % This gets rid of extra vertical spacing in the center environment
 \let\oldcenter\center
@@ -99,49 +185,57 @@
 % Redefines \maketitle to remove extra vertical space
 \makeatletter
 \let\old@maketitle\@maketitle
-\renewcommand{\@maketitle}{\vskip -2em\old@maketitle\vspace{-1.5em}}
+\renewcommand{\@maketitle}{\vskip -2em\old@maketitle\vspace{-20pt}}
 \makeatother
 
 % Paragraph indentation
 \setlength{\parindent}{.6cm}
 
 % Centers footnotes
-%\renewcommand{\footnoterule}{\noindent\hfil\rule{0.75\textwidth}{.4pt}\hfil}
+\renewcommand{\footnoterule}{\noindent\hfil\rule{0.75\textwidth}{0.6pt}\hfil}
 
 % Title and authors
 
 \RequirePackage{titling} % Allows customization of \maketitle
 
 \renewcommand{\and}{,\ } % Command goes between author names
-\renewcommand{\thanks}[1]{\footnote{\centering \fontsize{8pt}{9pt}\selectfont #1\vspace{1pt}}\thanksgap{\spacelength}} % An awkward hack to get footnote marks, punctuation, and spaces to work as desired
+\renewcommand{\thanks}[1]{\footnote{\centering \fontsize{8pt}{9pt}\selectfont
+    #1\vspace{1pt}}\thanksgap{\spacelength}}
+% An awkward hack to get footnote marks, punctuation, and spaces to work as
+% desired
 
-\pretitle{%
-    \centering%
-    \selectfont Ledger \LaTeX \ Template \par \blankline
-    \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
+
+
+
 \posttitle{\par}
-\preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}} % Authors are centered and at 13 pt.  Continuation of awkward hack
-\postauthor{\par\vspace{20pt}}
+
+\preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont
+  \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}}
+% Authors are centered and at 13 pt.  Continuation of awkward hack
+\postauthor{\par\vspace{10pt}}
 \predate{} % Removes date
 \date{}
 \postdate{}
 
+
 % Abstract
+
 \newlength{\abstractmargins}
 \setlength{\abstractmargins}{1.2cm}
 \newlength{\abstractwidth}
 \setlength{\abstractwidth}{\textwidth}
 \addtolength{\abstractwidth}{-2\abstractmargins}
 \renewenvironment{abstract}{%
-    \centering\begin{minipage}{\abstractwidth}\fontsize{10pt}{13pt}\selectfont \textbf{Abstract.}}{\end{minipage}\par}
+    \centering\begin{minipage}{\abstractwidth}\fontsize{10pt}{13pt}\selectfont \normalfont \textbf{Abstract.}}{\end{minipage}\par}
+
 
 % Body
 
 \renewcommand{\baselinestretch}{1.13}
-%\setcounter{secnumdepth}{1}
-%\renewcommand\thesection{\arabic{section}}
+
 
 % Keywords
+
 \let\olditem\item
 \renewcommand{\item}[1]{\olditem \mbox{#1}}
 \newlength{\keywordsmargins}
@@ -151,69 +245,110 @@
 \setlength{\keywordswidth}{\textwidth}
 \addtolength{\keywordswidth}{-2\keywordsmargins}
 \newenvironment{keywords}{\vspace{9pt}
-    {\centering\fontsize{10pt}{13pt}\selectfont\textsc{Key Words}\par}\vspace{6pt}
+    {\centering\fontsize{10pt}{13pt}\selectfont\textsc{KEY WORDS}\par}\vspace{6pt}
     \begin{center}\begin{minipage}{\keywordswidth}\begin{center}\begin{enumerate*}[itemjoin={\hspace{1em}},label=\arabic*.]}{\end{enumerate*}\end{center}\end{minipage}\end{center}}
+
+
 
 % Section and subsection
 
 \RequirePackage{titlesec} % Allows customization of \section
 
-%
-\titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{\thesection .\quad}
+%\setcounter{secnumdepth}{1}
+%\renewcommand\thesection{\arabic{section}}
+
+
+
+\titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{\thesection .\quad}
 \titlespacing*{\section}{0pt}{15pt}{7pt}
-\titleformat{\subsection}[runin]{\fontshape{it}\selectfont}{}{\parindent}{}[---]
+
+
+\titleformat{\subsection}[runin]{\fontshape{it}\selectfont}{}{\parindent}{\thesubsection .\quad}[---]
 \titlespacing{\subsection}{0em}{0em}{0em}
+
+
+\def\ledgernotes{
+    \setcounter{section}{0}
+    \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{}
+    \titlespacing*{\section}{0pt}{15pt}{7pt}
+}
+
 
 \def\appendix{
     \setcounter{section}{0}
-    \renewcommand\thesection{Appendix \Alph{section}}
-    \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{Appendix \Alph{section}:\quad}
+    \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{Appendix \Alph{section}:\quad}
+    \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
+
+
+
 
 % Tables
 
 \RequirePackage{tabularx} % Required for nontrivial tabular environments
-\newcolumntype{C}{>{\centering\arraybackslash}X} % Automatically-sized centered columns
+\newcolumntype{C}{>{\centering\arraybackslash}X} % Automatically-sized centered
+                                                 % columns
 
-\renewcommand{\tablename}{\fontsize{10pt}{13pt}\selectfont Table} % Fixes font size of label
+\renewcommand{\tablename}{\fontsize{10pt}{13pt}\selectfont Table} % Fixes font
+                                                                  % size of
+                                                                  % label
 
 \setlength{\intextsep}{0pt}    % This shrinks space before and after
 \setlength{\floatsep}{0pt}     % floating environments to conform
 \setlength{\textfloatsep}{0pt} % with parameters
 
-\setlength{\extrarowheight}{2pt} % With vertical centering, this effectively sets both the above and below "paragraph spacing" in tables to 1pt.
+\setlength{\extrarowheight}{2pt} % With vertical centering, this effectively
+                                 % sets both the above and below "paragraph
+                                 % spacing" in tables to 1pt.
 
-% The following redefines the tabularx environment to align with the required parameters
+% The following redefines the tabularx environment to align with the required
+% parameters
 \let\oldtabularx\tabularx % Stores \begin{tabularx} command
 \let\oldendtabularx\endtabularx % Stores \end{tabularx} command
-\renewcommand{\tabularx}[2]{\centering\minipage{#1}\renewcommand*{\footnoterule}{}\fontsize{10pt}{12pt}\selectfont\oldtabularx{#1}{#2}} % tabularx is now wrapped in a minipage so that footnotes appear at the bottom of the table
-\def \endtabularx {\relax} % A messy hack needed because of what I think is a bug in the tabularx package (without it, LaTeX complains on the next line that \endtabularx is not defined
-\renewcommand{\endtabularx}{\vspace{-1em}\endminipage\oldendtabularx} % The vertical space is to get the footnotes to display properly
+\renewcommand{\tabularx}[2]{\centering\minipage{#1}
+  \renewcommand*{\footnoterule}{}\fontsize{10pt}{11.5pt}\selectfont\oldtabularx{#1}{#2}
+}
+% tabularx is now wrapped in a minipage so that footnotes appear at the bottom
+% of the table
 
-% The following redefines the footnote command in minipages so that the footnote text displays underneath the footnote symbol when wrapping to the next line
+\def \endtabularx {\relax}
+% A messy hack needed because of what I think is a bug in the tabularx package
+% (without it, LaTeX complains on the next line that \endtabularx is not defined
+
+\renewcommand{\endtabularx}{\vspace{-0.5em}\endminipage\oldendtabularx}
+% The vertical space is to get the footnotes to display properly
+
+
+
+% The following redefines the footnote command in minipages so that the footnote
+% text displays underneath the footnote symbol when wrapping to the next line
 \makeatletter
 \renewcommand\@makefntext[1]{%
-    \fontsize{8pt}{11pt}\selectfont%
-    %\parindent 1em%
-    \noindent
-    \hbox{\hss\@makefnmark}\ #1}\vspace{3pt}
+  %\renewcommand\@makefnmark{\hbox{\@textsuperscript{\@thefnmark}}}
+  %\renewcommand\@makefnmark{\parindent 1em\noindent \hb@xt@ 1.8em{\hss \@makefnmark }#1}
+  
+  \fontsize{8pt}{11pt}\selectfont%
+  \noindent
+  \hbox{\hss\@makefnmark}\ #1}\vspace{3pt}
 \makeatother
 
 \crefname{table}{Table}{Tables} % Tells \cref how to display references to tables
 
 \newcommand{\tableheading}[1]{\pbox[c]{\textwidth}{\vspace{4pt}\fontsize{10pt}{13pt}\selectfont#1\vspace{4pt}}} % Standards ask for "table headings" to be displayed in a certain way, and so we make a command for this
 
+
 % Figures
 
-\renewcommand{\figurename}{\fontsize{10pt}{13pt}\selectfont Fig.} % In captions, changes "Figure" to "Fig." and fixes font size
+\crefname{figure}{Fig.}{Figures} % Tells \cref how to display
+\renewcommand{\figurename}{\fontsize{10pt}{13pt}\selectfont Fig.}
+% In captions, changes "Figure" to "Fig." and fixes font size
 
-\crefname{figure}{Figure}{Figures} % Tells \cref how to display references to figures
 
 % Captions
 
-\RequirePackage{caption} % Allows customization of captions
+\captionsetup{figurename=Fig.,labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
 
-\captionsetup{labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
+%\captionsetup[figure]{figurename=Fig.}
 
 % Redefines captions to conform with standards
 \makeatletter
@@ -241,13 +376,55 @@
 \setlength{\belowdisplayskip}{7pt}
 \setlength{\belowdisplayshortskip}{7pt}
 
-% Endnotes
 
-\renewcommand{\notesname}{Notes and References} % Changes the title of the section
-\renewcommand\enoteformat{\fontsize{11pt}{13pt}\selectfont\rightskip=0pt \leftskip=0pt \parindent=0em
-  \leavevmode\makeenmark\raggedright\vspace{5pt}} % Changes indentation
+% Endnotes
+% for use with \theendnotes
+\renewcommand{\notesname}{Notes and References} % Changes the title of
+                                                % thesection
+
+% Changes indentation 
+\renewcommand\enoteformat{\fontsize{10pt}{10pt}\selectfont \rightskip=0pt \leftskip=0pt \parindent=0.25em \parskip=0.8em \leavevmode\makeenmark \hskip0.25em}
 \let\oldtheendnotes\theendnotes
 \def\theendnotes{
-    \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{50em}{}
-    \oldtheendnotes
-}
+  \titleformat{\section}{\fontsize{13pt}{13pt}\fontseries{b}\selectfont}{}{}{}
+  \oldtheendnotes}
+
+
+% Notes and References
+
+
+% for use with bibtex
+\makeatletter
+\renewenvironment{thebibliography}[1]
+                 %{\refname%
+                 {\vspace{13pt}\par\noindent\begin{minipage}{\textwidth}\fontsize{13pt}{13pt}\selectfont \textbf{References and End Notes}\end{minipage}\par  
+                   %{\centering\begin{minipage}{\abstractwidth}\fontsize{13pt}{13pt}\selectfont \textbf{References and End Notes}{\end{minipage}\par}
+                   \fontsize{10pt}{10pt}\selectfont
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin-0.8em
+            \advance\leftmargin\labelsep
+            \setlength\itemindent{1em}          
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+       \endlist}
+   % \renewcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\makeatother
+
+
+
+
+
+
+
