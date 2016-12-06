@@ -86,7 +86,7 @@
     \rhead{\raisebox{1cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
       \end{flushright}
     \end{minipage}}
     }
@@ -96,7 +96,7 @@
   \fancyhf{}%
   % \lhead{\includegraphics[height=1cm]{logoNew}}%
   % \lhead{Left top main }%
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. 1, NO 1 (2016) XX-XX}}
   \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
   \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
 
@@ -106,7 +106,7 @@
   \rfoot{\raisebox{0.5cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI.5195/LEDGER.2015.id
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
       \end{flushright}
     \end{minipage}}}
 }
@@ -116,7 +116,7 @@
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL. 1, NO 1 (2016) XX-XX}}
 
   \cfoot{
     \raisebox{1cm-\height}{
@@ -268,14 +268,14 @@
 
 
 \def\ledgernotes{
-    \setcounter{section}{0}
+   % \setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
 
 
 \def\appendix{
-    \setcounter{section}{0}
+   % \setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{Appendix \Alph{section}:\quad}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
