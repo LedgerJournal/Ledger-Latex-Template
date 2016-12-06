@@ -86,7 +86,7 @@
     \rhead{\raisebox{1cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.X
       \end{flushright}
     \end{minipage}}
     }
@@ -106,7 +106,7 @@
   \rfoot{\raisebox{0.5cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.X
       \end{flushright}
     \end{minipage}}}
 }
