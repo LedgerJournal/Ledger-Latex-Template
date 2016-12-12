@@ -71,7 +71,8 @@
 
 \hypersetup{bookmarks=false, hidelinks=true, unicode=true, pageanchor=false}
 
-\AtBeginDocument{\urlstyle{same}}
+%\AtBeginDocument{\urlstyle{same}}
+\AtBeginDocument{\urlstyle{pcr}}
 
 
 % here are all the headers
@@ -86,7 +87,7 @@
     \rhead{\raisebox{1cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.201X.X
       \end{flushright}
     \end{minipage}}
     }
@@ -96,7 +97,7 @@
   \fancyhf{}%
   % \lhead{\includegraphics[height=1cm]{logoNew}}%
   % \lhead{Left top main }%
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. 1, NO 1 (2016) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL X (201X) X-X}}
   \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
   \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
 
@@ -106,7 +107,7 @@
   \rfoot{\raisebox{0.5cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.2016.15
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ DOI 10.5195/LEDGER.201X.X
       \end{flushright}
     \end{minipage}}}
 }
@@ -116,7 +117,7 @@
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. 1, NO 1 (2016) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL X (201X) X-X}}
 
   \cfoot{
     \raisebox{1cm-\height}{
