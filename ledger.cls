@@ -72,6 +72,7 @@
 \hypersetup{bookmarks=false, hidelinks=true, unicode=true, pageanchor=false}
 
 %\AtBeginDocument{\urlstyle{same}}
+\AtBeginDocument{\urlstyle{pcr}}
 
 
 % here are all the headers
@@ -116,7 +117,7 @@
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
 
   \cfoot{
     \raisebox{1cm-\height}{
@@ -268,14 +269,14 @@
 
 
 \def\ledgernotes{
-    \setcounter{section}{0}
+   % \setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
 
 
 \def\appendix{
-    \setcounter{section}{0}
+   % \setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{Appendix \Alph{section}:\quad}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
