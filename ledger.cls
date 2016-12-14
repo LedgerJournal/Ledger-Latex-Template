@@ -64,7 +64,12 @@
 
 
 
-\RequirePackage[pdfpagelabels]{hyperref}
+\RequirePackage[pdfpagelabels,
+  pdfauthor={Daniel Kraft},
+  pdftitle={Game Channels for Trustless Off-Chain Interactions in Decentralized
+  Virtual Worlds},
+  pdfproducer={Latex with hyperref},
+  pdfcreator={pdflatex}]{hyperref}
 \RequirePackage{breakurl}
 %\RequirePackage{url}
 %\def\url#1{\expandafter\string\csname #1\endcsname}
@@ -87,11 +92,13 @@
     \rhead{\raisebox{1cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ \thedoi
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
       \end{flushright}
     \end{minipage}}
     }
 }
+
 
 \fancypagestyle{pagemain}{%
   \fancyhf{}%
@@ -107,33 +114,32 @@
   \rfoot{\raisebox{0.5cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ \thedoi
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
       \end{flushright}
     \end{minipage}}}
 }
 
 
-
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL. X, NO X (201X) XX-XX}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
 
-  \cfoot{
-    \raisebox{1cm-\height}{
-    \begin{minipage}[b]{0.9\textwidth}
-    \footnotesize\raggedright
-    \setlength{\parskip}{0.5\baselineskip}
-    \begin{framed}
-    \pbox[b]{\textwidth}{This work is licensed under a Creative Commons
-      Attribution 4.0 License. Ledger is published by the University Library
-      System of the University of Pittsburgh as part of its D-Scribe Digital
-      Publishing Program, and is cosponsored by the University of Pittsburgh
-      Press.}
-    \end{framed}
+  \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}
+    \begin{minipage}[t]{\textwidth}
+    {\vspace*{-5cm}\centering\includegraphics[width=\textwidth]{logoCreativeCommons}}%
     \end{minipage}
-    }
   }
+  
+  \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
+  \rfoot{\raisebox{0.5cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
+      \end{flushright}
+    \end{minipage}}}
 }
 
 
@@ -269,14 +275,14 @@
 
 
 \def\ledgernotes{
-    \setcounter{section}{0}
+    %\setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
 
 
 \def\appendix{
-    \setcounter{section}{0}
+    %\setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{Appendix \Alph{section}:\quad}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
