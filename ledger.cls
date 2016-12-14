@@ -103,7 +103,7 @@
   \fancyhf{}%
   % \lhead{\includegraphics[height=1cm]{logoNew}}%
   % \lhead{Left top main }%
-  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL \thevol~(\theyear) \ledgerpages}}
   \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
   \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
 
@@ -123,7 +123,7 @@
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL \thevol~(\theyear) \ledgerpages}}
 
   \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}
     \begin{minipage}[t]{\textwidth}
@@ -154,6 +154,9 @@
 \RequirePackage[inline]{enumitem} % Allows inline lists.  Used for keywords.
 \setlist{leftmargin=1.2cm,labelindent*=.6cm,itemsep=0cm,parsep=0cm,topsep=0cm}
 \setlist[enumerate]{label=(\arabic*)}
+\setlist[description]{labelindent=\parindent-0.5em}
+
+
 
 \RequirePackage{endnotes} % Used for making endnotes
 
@@ -209,7 +212,6 @@
     #1\vspace{1pt}}\thanksgap{\spacelength}}
 % An awkward hack to get footnote marks, punctuation, and spaces to work as
 % desired
-
 
 
 
@@ -351,6 +353,7 @@
 
 
 % Captions
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \captionsetup{figurename=Fig.,labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
 
