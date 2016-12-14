@@ -65,9 +65,8 @@
 
 
 \RequirePackage[pdfpagelabels,
-  pdfauthor={Daniel Kraft},
-  pdftitle={Game Channels for Trustless Off-Chain Interactions in Decentralized
-  Virtual Worlds},
+  pdfauthor={name},
+  pdftitle={title},
   pdfproducer={Latex with hyperref},
   pdfcreator={pdflatex}]{hyperref}
 \RequirePackage{breakurl}
