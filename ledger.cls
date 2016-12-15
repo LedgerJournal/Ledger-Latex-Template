@@ -3,14 +3,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ledger}
 
-% PACKAGES
 
-%%%% ADDED, UPDATE TEMPLATE EXAMPLES
+% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \RequirePackage[superscript,biblabel]{cite}
 
 \RequirePackage{subfig}
-%\usepackage{fullpage}
-
 
 \RequirePackage{numprint}
 \npthousandsep{,}\npthousandthpartsep{}\npdecimalsign{.}
@@ -21,11 +20,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Symbol, Chancery and Computer Modern fonts
 \renewcommand{\@xpt}{11.5}
@@ -63,24 +57,26 @@
 \renewcommand{\headrulewidth}{0pt}
 
 
-
-\RequirePackage[pdfpagelabels,
-  pdfauthor={name},
-  pdftitle={title},
+%hyperref
+\RequirePackage[pdfpagelabels, hidelinks,
+  bookmarks=false, unicode=true, pageanchor=false,
   pdfproducer={Latex with hyperref},
   pdfcreator={pdflatex}]{hyperref}
+
 \RequirePackage{breakurl}
+
+%alternatives to hyperref:
 %\RequirePackage{url}
 %\def\url#1{\expandafter\string\csname #1\endcsname}
 
-\hypersetup{bookmarks=false, hidelinks=true, unicode=true, pageanchor=false}
 
+%URL font (times vs. courier)
 %\AtBeginDocument{\urlstyle{same}}
 \AtBeginDocument{\urlstyle{pcr}}
 
 
 % here are all the headers
-% we need to create three page styles pagefirst, pageplain and pagelast
+% we need to create three page styles pagefirst, pagemain and pagelast
 \fancypagestyle{pagefirst}{%
   \fancyhf{}%
   \lhead{\includegraphics[height=1cm]{logoNew}}%
@@ -191,6 +187,7 @@
   \oldendcenter
 }
 
+
 % Redefines \maketitle to remove extra vertical space
 \makeatletter
 \let\old@maketitle\@maketitle
@@ -203,6 +200,7 @@
 % Centers footnotes
 \renewcommand{\footnoterule}{\noindent\hfil\rule{0.75\textwidth}{0.6pt}\hfil}
 
+
 % Title and authors
 
 \RequirePackage{titling} % Allows customization of \maketitle
@@ -212,11 +210,7 @@
     #1\vspace{1pt}}\thanksgap{\spacelength}}
 % An awkward hack to get footnote marks, punctuation, and spaces to work as
 % desired
-
-
-
 \posttitle{\par}
-
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont
   \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}}
 % Authors are centered and at 13 pt.  Continuation of awkward hack
@@ -257,14 +251,12 @@
     \begin{center}\begin{minipage}{\keywordswidth}\begin{center}\begin{enumerate*}[itemjoin={\hspace{1em}},label=\arabic*.]}{\end{enumerate*}\end{center}\end{minipage}\end{center}}
 
 
-
 % Section and subsection
 
 \RequirePackage{titlesec} % Allows customization of \section
 
 %\setcounter{secnumdepth}{1}
 %\renewcommand\thesection{\arabic{section}}
-
 
 
 \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{\thesection .\quad}
