@@ -3,14 +3,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ledger}
 
-% PACKAGES
 
-%%%% ADDED, UPDATE TEMPLATE EXAMPLES
+% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \RequirePackage[superscript,biblabel]{cite}
 
 \RequirePackage{subfig}
-%\usepackage{fullpage}
-
 
 \RequirePackage{numprint}
 \npthousandsep{,}\npthousandthpartsep{}\npdecimalsign{.}
@@ -21,11 +20,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Symbol, Chancery and Computer Modern fonts
 \renewcommand{\@xpt}{11.5}
@@ -63,20 +57,26 @@
 \renewcommand{\headrulewidth}{0pt}
 
 
+%hyperref
+\RequirePackage[pdfpagelabels, hidelinks,
+  bookmarks=false, unicode=true, pageanchor=false,
+  pdfproducer={Latex with hyperref},
+  pdfcreator={pdflatex}]{hyperref}
 
-\RequirePackage[pdfpagelabels]{hyperref}
 \RequirePackage{breakurl}
+
+%alternatives to hyperref:
 %\RequirePackage{url}
 %\def\url#1{\expandafter\string\csname #1\endcsname}
 
-\hypersetup{bookmarks=false, hidelinks=true, unicode=true, pageanchor=false}
 
+%URL font (times vs. courier)
 %\AtBeginDocument{\urlstyle{same}}
 \AtBeginDocument{\urlstyle{pcr}}
 
 
 % here are all the headers
-% we need to create three page styles pagefirst, pageplain and pagelast
+% we need to create three page styles pagefirst, pagemain and pagelast
 \fancypagestyle{pagefirst}{%
   \fancyhf{}%
   \lhead{\includegraphics[height=1cm]{logoNew}}%
@@ -87,17 +87,19 @@
     \rhead{\raisebox{1cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ \thedoi
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
       \end{flushright}
     \end{minipage}}
     }
 }
 
+
 \fancypagestyle{pagemain}{%
   \fancyhf{}%
   % \lhead{\includegraphics[height=1cm]{logoNew}}%
   % \lhead{Left top main }%
-  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL \thevol~(\theyear) \ledgerpages}}
   \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}}
   \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
 
@@ -107,33 +109,32 @@
   \rfoot{\raisebox{0.5cm-\height}
     {\begin{minipage}[t]{.48\textwidth}
       \begin{flushright}
-      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online) \\ \thedoi
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
       \end{flushright}
     \end{minipage}}}
 }
 
 
-
 \fancypagestyle{pagelast}{%
   \fancyhf{}%
 
-  \chead{\raisebox{1cm-\height}{LEDGER VOL 1 (2016) \ledgerpages}}
+  \chead{\raisebox{1cm-\height}{LEDGER VOL \thevol~(\theyear) \ledgerpages}}
 
-  \cfoot{
-    \raisebox{1cm-\height}{
-    \begin{minipage}[b]{0.9\textwidth}
-    \footnotesize\raggedright
-    \setlength{\parskip}{0.5\baselineskip}
-    \begin{framed}
-    \pbox[b]{\textwidth}{This work is licensed under a Creative Commons
-      Attribution 4.0 License. Ledger is published by the University Library
-      System of the University of Pittsburgh as part of its D-Scribe Digital
-      Publishing Program, and is cosponsored by the University of Pittsburgh
-      Press.}
-    \end{framed}
+  \cfoot{\raisebox{0.25cm-\height}{\textbf{\thepage}}
+    \begin{minipage}[t]{\textwidth}
+    {\vspace*{-5cm}\centering\includegraphics[width=\textwidth]{logoCreativeCommons}}%
     \end{minipage}
-    }
   }
+  
+  \lfoot{\raisebox{0.5cm-\height}{\includegraphics[height=0.3cm]{logoSmall}}}%
+  \rfoot{\raisebox{0.5cm-\height}
+    {\begin{minipage}[t]{.48\textwidth}
+      \begin{flushright}
+      \fontsize{8pt}{8pt}\selectfont \sffamily\color{gray}SSN 2379-5980 (online)
+      \\ \thedoi
+      \end{flushright}
+    \end{minipage}}}
 }
 
 
@@ -149,6 +150,9 @@
 \RequirePackage[inline]{enumitem} % Allows inline lists.  Used for keywords.
 \setlist{leftmargin=1.2cm,labelindent*=.6cm,itemsep=0cm,parsep=0cm,topsep=0cm}
 \setlist[enumerate]{label=(\arabic*)}
+\setlist[description]{labelindent=\parindent-0.5em}
+
+
 
 \RequirePackage{endnotes} % Used for making endnotes
 
@@ -183,6 +187,7 @@
   \oldendcenter
 }
 
+
 % Redefines \maketitle to remove extra vertical space
 \makeatletter
 \let\old@maketitle\@maketitle
@@ -195,6 +200,7 @@
 % Centers footnotes
 \renewcommand{\footnoterule}{\noindent\hfil\rule{0.75\textwidth}{0.6pt}\hfil}
 
+
 % Title and authors
 
 \RequirePackage{titling} % Allows customization of \maketitle
@@ -204,12 +210,7 @@
     #1\vspace{1pt}}\thanksgap{\spacelength}}
 % An awkward hack to get footnote marks, punctuation, and spaces to work as
 % desired
-
-
-
-
 \posttitle{\par}
-
 \preauthor{\vspace{13pt}\centering\fontsize{13pt}{13pt}\selectfont
   \setfnpct{punct-after=true,add-punct-marks=\and,before-dot-space=\spacelength,before-comma-space=\spacelength}}
 % Authors are centered and at 13 pt.  Continuation of awkward hack
@@ -250,14 +251,12 @@
     \begin{center}\begin{minipage}{\keywordswidth}\begin{center}\begin{enumerate*}[itemjoin={\hspace{1em}},label=\arabic*.]}{\end{enumerate*}\end{center}\end{minipage}\end{center}}
 
 
-
 % Section and subsection
 
 \RequirePackage{titlesec} % Allows customization of \section
 
 %\setcounter{secnumdepth}{1}
 %\renewcommand\thesection{\arabic{section}}
-
 
 
 \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{\thesection .\quad}
@@ -269,14 +268,14 @@
 
 
 \def\ledgernotes{
-   % \setcounter{section}{0}
+    %\setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
 
 
 \def\appendix{
-   % \setcounter{section}{0}
+    %\setcounter{section}{0}
     \titleformat{\section}{\fontsize{13pt}{13pt}\normalfont\bfseries}{}{0em}{Appendix \Alph{section}:\quad}
     \titlespacing*{\section}{0pt}{15pt}{7pt}
 }
@@ -346,6 +345,7 @@
 
 
 % Captions
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \captionsetup{figurename=Fig.,labelsep=period,margin=1.2cm,compatibility=true} % Changes the colon after "Table X" to a period (similarly for "Fig. X") and sets appropriate margins for captions
 

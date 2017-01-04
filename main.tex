@@ -1,5 +1,31 @@
 \documentclass{ledger}
 
+%AUTHOR: the preferred method to generate PDF output is to use 'pdflatex'
+%To clean up after a successful build, try: 'latexmk -c main.tex'
+
+
+%EDITOR: replace X's to set the data for the header and footer
+\newcommand{\thefirstpagenum}[0]{1}
+\newcommand{\thelastpagenum}[0]{5}
+\newcommand{\theyear}[0]{201X}
+\newcommand{\thevol}[0]{X}
+\newcommand{\thedoi}[0]{DOI 10.5195/LEDGER.\theyear.X}
+\newcommand{\ledgerpages}[0]{\thefirstpagenum-\thelastpagenum}
+
+
+%AUTHOR: please set these to generate correct PDF metadata
+\hypersetup{pdfauthor={First Last}, pdftitle={This is a Title}}
+
+
+%EDITOR: set the correct pageination during layout
+\setcounter{page}{\thefirstpagenum}
+
+
+%AUTHOR: this can be used to highlight changed text, surround with \edit{} and
+%uncomment either to determine color
+%\newcommand{\edit}[1]{{\color{red} #1}}
+\newcommand{\edit}[1]{#1}
+
 \overfullrule=10pt
 
 \title{Descriptive Title Written in Twenty-four Point Times New Roman}
@@ -10,9 +36,9 @@
 
 %The Author should select the appropriate pretitle below:
 \pretitle{
-  %\centering \selectfont LEDGER \LaTeX \ TEMPLATE \par
-  %\blankline
-  \centering \selectfont Review Article \par 
+  \centering \selectfont LEDGER \LaTeX \ TEMPLATE \par
+  %\centering \selectfont REVIEW ARTICLE \par
+  %\centering \selectfont RESEARCH ARTICLE \par 
   \fontsize{24pt}{28pt}\selectfont} % Title is centered and at 24pt
 
 
@@ -25,6 +51,7 @@
 \begin{abstract}
 The abstract should be written in 10 pt.~ Times New Roman font, 13 pt.~line spacing, and 1.2 cm indenting on either side.  Give a concise summary of the paper in a single paragraph of approximately 150 words (200 words max).  The abstract should communicate both what the paper is about and the important results obtained.  The abstract should contain neither references nor non-plain text elements such as equations or compute code.
 
+%AUTHOR: keywords are OK to show for Review article, will be hidden for publication
 \begin{keywords}
 \item First key word.
 \item Second key word.
@@ -119,7 +146,13 @@ Code segments can be displayed inline using 10 pt.~Courier New (e.g., \lstinline
 if(blocknumber > 115000)
 maxblocksize = largerlimit
 \end{lstlisting}
-For displayed code, the first line should be indented by 1.2cm (twice the standard indent) with additional tabs at multiples of 0.6 cm.
+
+\noindent This is an example of a Decription List:
+\begin{description}
+\item[First] For displayed code, the first line should be indented by 1.2cm
+  (twice the standard indent) with additional tabs at multiples of 0.6 cm.
+\end{description} 
+  
 
 \subsection{Endnotes}
 
@@ -129,6 +162,10 @@ Endnotes are denoted with a superscript Arabic numeral and ordered sequentially.
 
 For papers that do not follow a conventional structure, synthesize and summarize the main results of the paper.  This section is also an appropriate place to clarify the limitations of the work, as well as to describe new research questions that arose.  The conclusion section for papers that follow a conventional structure (i.e., Methods, Results, Discussion) may be very short because the synthesis of the results usually occurs in the Discussion section.  The Conclusion and the Introduction should be the two sections of your paper most accessible to an interdisciplinary readership.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%define the following sections to hide their Section Number (Notes Style)
 \ledgernotes
 
 \section{Acknowledgement}
@@ -143,15 +180,46 @@ State the contribution made by each author.  Refer to authors using their initia
 
 State any potential conflict of interest here, again referring to authors using their initials.  Although assessing whether a conflict of interest exists can be difficult, as a guideline consider whether it would be embarrassing should the potential conflict become publicly known.  This section may be omitted if no conflict of interest exists.
 
+
+%AUTHOR: comment out if using thebibliography
 \theendnotes
 
+
+%AUTHOR: comment out, this is used to make sure the Creative Commons License
+%image fits on page
+\newpage
+
+
+%define the following sections to have the Appendix Style
 \appendix
+
 
 \section{Calculations}
 
 Relegate to an appendix material that would distract from the flow of the article, but that is required to rigorously prove claims made or concepts introduced in the paper’s body.
 
 
-%\thispagestyle{pagelast}
+%AUTHOR: this is an alternative to using Endnotes
+%\bibliographystyle{nature}
+
+%\begin{thebibliography}{99}
+
+
+%\bibitem{itemName}
+%Last, F.
+%\newblock {``Title.''}
+%\newblock {\em Publication} (XX Month 201X)
+%  \url{http://}
+
+
+%\end{thebibliography}
+
+
+
+%add the Creative Commons license footer to the last page
+\thispagestyle{pagelast}
 
 \end{document}
+
+
+
